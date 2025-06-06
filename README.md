@@ -100,7 +100,7 @@ LinearRegressionGradientDescent.main(Array.empty)
 
 This will print logs, RMSE, and model weights for both approaches.
 
-Here are some challenges I likely faced while building and running your Spark + Breeze Linear Regression project:
+Here are some challenges I likely faced while building and running my Spark + Breeze Linear Regression project:
 
 💡 Conceptual & Algorithmic Challenges 
 
