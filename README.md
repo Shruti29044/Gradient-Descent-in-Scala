@@ -100,6 +100,42 @@ LinearRegressionGradientDescent.main(Array.empty)
 
 This will print logs, RMSE, and model weights for both approaches.
 
+Here are some challenges I likely faced while building and running your Spark + Breeze Linear Regression project:
+
+💡 Conceptual & Algorithmic Challenges 
+
+Understanding Gradient Descent: Implementing the gradient descent algorithm from scratch (instead of using built-in MLlib methods) requires a solid grasp of loss minimization and vectorized updates.
+
+Choosing Learning Rate (α): Deciding how fast the model should converge is tricky. A rate too high can cause divergence; too low can slow convergence.
+
+RMSE Calculation: Ensuring correct error measurement across distributed data using RDD transformations adds an extra layer of complexity.
+
+🧮 Technical & Programming Challenges
+
+Using Breeze with Spark: Breeze and Spark are separate ecosystems. Using DenseVector from Breeze with Spark’s RDDs required careful type conversions and compatibility checks.
+
+RDD Debugging: Debugging logic inside .map() and .reduce() functions is harder since print statements don’t always show up immediately or in order.
+
+Matrix Operations for Closed Form: Constructing matrices from RDDs using DenseMatrix needed transformation and reshaping of raw feature arrays.
+
+⚙️ Environment Challenges
+
+Databricks/Spark Configuration: Running this inside a Databricks environment required you to configure Spark context correctly (setLogLevel, handling default sc reuse).
+
+Dependency Management: Ensuring Breeze was available and didn’t conflict with MLlib or other dependencies.
+
+Memory Efficiency: Storing entire datasets in memory for matrix inversion (closed form) can cause memory issues for large datasets.
+
+🔍 Debugging & Testing Challenges
+
+Interpreting Output: Matching computed weights and RMSE values with expectations to confirm correctness is non-trivial without a baseline.
+
+Validating Gradient Updates: Making sure the summands computed during gradient descent actually push the weights in the correct direction.
+
+Data Shape & Type Issues: RDD operations can fail silently if the structure of vectors or inputs is off by even a small amount.
+
+
+
 
 
 
